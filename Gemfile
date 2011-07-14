@@ -12,4 +12,5 @@ group :development do
   gem "jeweler", "~> 1.6.4"
   gem "rcov", ">= 0"
   gem "autotest"
+  gem "syntax"
 end
