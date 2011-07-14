@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "Rfizzy"
   gem.homepage = "http://github.com/seivan/Rfizzy"
   gem.license = "MIT"
-  gem.summary = %Q{TODO: one-line summary of your gem}
-  gem.description = %Q{TODO: longer description of your gem}
+  gem.summary = %Q{Full text search engine with Redis. Works in all Ruby projects}
+  gem.description = %Q{Full text search engine with Redis. Works in all Ruby projects. Very simple built, source code is < 300loc including tests. Was built because it's cheaper to go with the 20mb Redis solution with redis than using PostgreSQL's full text search. Also I needed background jobs and might as well use Resque for that.  }
   gem.email = "seivan@kth.se"
   gem.authors = ["Seivan Heidari"]
   # dependencies defined in Gemfile
