@@ -29,27 +29,29 @@ class Rfizzy
   end
   
   def search_index(options)
-    interstore_cache = Time.now.to_f
+    interstore_cache = Time.now.to_f.to_s
     results = []
+    search_keys_array = search_keys(options)
     @redis.multi do |red|
-      red.sinterstore interstore_cache, search_keys(options)
-      results = red.smembers interstore_cache
-      red.del interstore_cache
+      red.sinterstore interstore_cache, *search_keys_array
+      
     end
+    results = @redis.smembers interstore_cache
+    @redis.del interstore_cache
+    # puts @redis.sinterstore interstore_cache, *search_keys_array
+    # puts search_keys_array.inspect
+    # results = @redis.smembers interstore_cache
     results
   end
   
   private
   def search_keys(options)
-
     association = options[:association]
     attribute_namespace = options[:attribute_namespace]
     search_text = options[:search_text]
     search_keys = search_text.split(" ").map do |word|
-      puts word
       "#{@namespace}:word:#{association}:#{attribute_namespace}:#{word}"
     end
-    puts search_keys.inspect
     search_keys
   end
 

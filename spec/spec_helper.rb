@@ -11,18 +11,18 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 
 RSpec.configure do |config|
   config.before(:suite) do
-    R.select 10
+    
   end
 
   config.before(:each) do
   end
 
   config.after(:each) do
-#    R.select 0
-#    R.flushdb
   end
 
   config.before(:all) do
+   R.select 0
+   R.flushdb
 
   end
   config.after(:all) do
