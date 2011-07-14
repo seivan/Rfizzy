@@ -34,10 +34,12 @@ class Rfizzy
     search_keys_array = search_keys(options)
     @redis.multi do |red|
       red.sinterstore interstore_cache, *search_keys_array
-      
     end
     results = @redis.smembers interstore_cache
-    @redis.del interstore_cache
+    @redis.multi do |red|
+      red.del interstore_cache
+    end
+
     # puts @redis.sinterstore interstore_cache, *search_keys_array
     # puts search_keys_array.inspect
     # results = @redis.smembers interstore_cache

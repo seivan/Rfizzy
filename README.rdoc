@@ -1,4 +1,4 @@
-= Rfizzy
+= Rfizzy http://travis-ci.org/seivan/Rfizzy.png
 
 Full text search engine with Redis. Works in all Ruby projects. Very simple built, source code is < 300loc including tests. Was built because it's cheaper to go with the 20mb Redis solution with redis than using PostgreSQL's full text search. Also I needed background jobs and might as well use Resque for that.
 
