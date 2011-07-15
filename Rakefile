@@ -25,15 +25,24 @@ Jeweler::Tasks.new do |gem|
 end
 Jeweler::RubygemsDotOrgTasks.new
 
+require 'reek/rake/task'
+Reek::Rake::Task.new do |t|
+  t.fail_on_error = true
+  t.verbose = false
+  t.source_files = 'lib/**/*.rb'
+end
+
 require 'rspec/core'
 require 'rspec/core/rake_task'
 RSpec::Core::RakeTask.new(:spec) do |spec|
   spec.pattern = FileList['spec/**/*_spec.rb']
 end
 
+
 RSpec::Core::RakeTask.new(:rcov) do |spec|
   spec.pattern = 'spec/**/*_spec.rb'
   spec.rcov = true
+  spec.rspec_opts = ["--color", "--format", "documentation", "--tag"]
 end
 
 task :default => :spec
