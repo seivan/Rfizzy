@@ -2,19 +2,41 @@
 
 A ruby library utilizing Redis for; 
 * Full text search engine with Redis.
-* Tagging library
-* Social Graph with friends, followers, followees and etc. 
+* Taggingging library
+* Social Graph with friends, followers, followees and etc.  (not in 0.1.0, gotta pick your battles )
 
 
 Works in all Ruby projects, regardless of ORM as long as an attribute has a way to identify it (e.g ID column). 
-Very simple built, source code is < 70 loc and has full test coverage. 
-Easy to tap into any project without must learning curve or code breakage. Easy to remove as well.
+Very simple built, source code is < 100 loc and has full test coverage. 
+Easy to tap into any project without high learning curve or code breakage. Easy to remove as well.
 VERY unobtrusive.
 
 == Introduction
-  class Post < ActiveRecord::Base
-
+class Tweet < ActiveRecord::Base 
+  after_create :create_search_index
+  before_destroy :destroy_search_index
+  
+  private
+  def create_search_index
+    FullTextSearch.create_index :attribute_namespace => :tweet_text_content,
+                                :document_id => id,
+                                :words => text_content
+                              
   end
+  
+  def destroy_search_index
+    FullTextSearch.destroy_index  :attribute_namespace => :tweet_text_content,
+                                  :document_id => id,
+                                  :words => text_content
+    
+  end
+end
+
+
+set_of_ids = FullTextSearch.search_index :attribute_namespace => :article_text,
+                                         :search => text_content
+                                         
+Article.where(:id => set_of_ids)
   
 == Contributing to Rfizzy
  

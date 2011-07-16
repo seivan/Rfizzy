@@ -20,8 +20,10 @@ class Rfizzy
   end
 
   def create_index(params)
+    words = params[:words]
+    words = words.split(" ") if words.instance_of? String
     @redis.multi do |red|
-      params[:text].split(" ").each do |word|
+      words.each do |word|
         red.sadd "#{@namespace}:document:#{params[:association]}:#{params[:attribute_namespace]}:#{params[:document_id]}", word
         red.sadd "#{@namespace}:word:#{params[:association]}:#{params[:attribute_namespace]}:#{word}", params[:document_id]
       end
@@ -50,7 +52,7 @@ class Rfizzy
     document_id = params[:document_id]
     words_array = @redis.smembers "#{@namespace}:document:#{params[:association]}:#{params[:attribute_namespace]}:document_id"
     words = words_array.join(" ")
-    params.merge!({:search_text => words})
+    params.merge!({:search => words})
     keys_to_delete = search_keys(params)
     @redis.multi do |red|
       keys_to_delete.each do |key|
@@ -63,8 +65,9 @@ class Rfizzy
   def search_keys(params)
     association = params[:association]
     attribute_namespace = params[:attribute_namespace]
-    search_text = params[:search_text]
-    search_keys = search_text.split(" ").map do |word|
+    search_text = params[:search]
+    search_text = search_text.split(" ") if search_text.instance_of? String
+    search_keys = search_text.map do |word|
       "#{@namespace}:word:#{association}:#{attribute_namespace}:#{word}"
     end
     search_keys
