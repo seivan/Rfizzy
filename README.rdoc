@@ -49,17 +49,17 @@ VERY unobtrusive.
     end
   
     def destroy_search_index
-      FullTextSearch.destroy_index  :attribute_namespace => :tweet_text_content,
+      FullTextSearch.destroy_index  :attribute_namespace => :,
                                     :document_id => id
     
     end
   end
 
 
-  set_of_ids = FullTextSearch.search_index :attribute_namespace => :article_text,
-                                           :search => text_content
+  set_of_ids = FullTextSearch.search_index :attribute_namespace => :tweet_text_content
+                                           :search => "bieber"
                                          
-  Article.where(:id => set_of_ids)
+  Twéet.where(:id => set_of_ids)
 
 == Travis CI build status http://travis-ci.org/seivan/Rfizzy.png
 
