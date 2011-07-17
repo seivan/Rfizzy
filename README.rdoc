@@ -1,5 +1,12 @@
 = Rfizzy http://travis-ci.org/seivan/Rfizzy.png
+
+== Install?
+
+gem "Rfizzy"
+gem install Rfizzy
+
 == {Documentation}[http://seivan.github.com/Rfizzy/]
+
 == Why?
 Because it was cheaper for me to use Redis 20mb than 15 gb PostgreSQL
 And also, because I want people to realize how powerful Redis actually is.
