@@ -19,13 +19,13 @@ describe Rfizzy, "search destroy_index" do
   end
 
   context "destroy an index with" do
-    context "a document that exist" do
-      subject { @search.search_index(search_parameters) }
-      it { should_not be_empty }
-      it { should include(document_id) }
-    end    
+    # context "a document that exist" do
+    #   subject { @search.search_index(search_parameters) }
+    #   it { should_not be_empty }
+    #   it { should include(document_id) }
+    # end    
     it "should no longer return results" do
-      @search.destroy_index(search_parameters)
+      @search.destroy_index(tweet)
       results = @search.search_index(search_parameters)
       results.should_not include(document_id)
     end

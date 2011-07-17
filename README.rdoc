@@ -5,6 +5,19 @@ A ruby library utilizing Redis for;
 * Taggingging library
 * Social Graph with friends, followers, followees and etc.  (not in 0.1.0, gotta pick your battles )
 
+### Key Features
+# * Very unobtrusiv
+# * Very easy to add to a project
+# * Very easy to remove from a project
+# * Small memory foot print, 
+# * very tiny code base compared to other libraries and in contrast to what it adds to a project
+# * Fast
+# * No learning curve
+# * Works with any ORMs out of the box...
+# * ... Since it's not attached to any of ORMs
+# ***
+
+
 
 Works in all Ruby projects, regardless of ORM as long as an attribute has a way to identify it (e.g ID column). 
 Very simple built, source code is < 100 loc and has full test coverage. 
@@ -40,10 +53,12 @@ Article.where(:id => set_of_ids)
   
 == Contributing to Rfizzy
  
+* Make sure you got Redis running locally on standard port
+* Make sure you can have up to 10 databases with redis, since the test suite uses db 10
 * Check out the latest develop to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
 * Fork the project
-* Start a feature/my_feature or bugfix/ branch
+* Start a feature/my_feature or hotfix/ branch
 * Commit and push until you are happy with your contribution
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.

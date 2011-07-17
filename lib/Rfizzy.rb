@@ -50,14 +50,14 @@ class Rfizzy
   
   def destroy_index(params)      
     document_id = params[:document_id]
-    words_array = @redis.smembers "#{@namespace}:document:#{params[:association]}:#{params[:attribute_namespace]}:document_id"
-    words = words_array.join(" ")
-    params.merge!({:search => words})
+    words_array = @redis.smembers "#{@namespace}:document:#{params[:association]}:#{params[:attribute_namespace]}:#{document_id}"
+    params.merge!({:search => words_array})
     keys_to_delete = search_keys(params)
     @redis.multi do |red|
       keys_to_delete.each do |key|
         red.srem key, document_id
-      end
+     end
+      red.del "#{@namespace}:document:#{params[:association]}:#{params[:attribute_namespace]}:document_id"
     end
   end
   
