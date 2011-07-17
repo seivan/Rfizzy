@@ -1,13 +1,64 @@
 = Rfizzy http://travis-ci.org/seivan/Rfizzy.png
 
-Full text search engine with Redis. Works in all Ruby projects. Very simple built, source code is < 300loc including tests. Was built because it's cheaper to go with the 20mb Redis solution with redis than using PostgreSQL's full text search. Also I needed background jobs and might as well use Resque for that.
+A ruby library utilizing Redis for; 
+* Full text search engine with Redis.
+* Taggingging library
+* Social Graph with friends, followers, followees and etc.  (not in 0.1.0, gotta pick your battles )
 
+### Key Features
+# * Very unobtrusiv
+# * Very easy to add to a project
+# * Very easy to remove from a project
+# * Small memory foot print, 
+# * very tiny code base compared to other libraries and in contrast to what it adds to a project
+# * Fast
+# * No learning curve
+# * Works with any ORMs out of the box...
+# * ... Since it's not attached to any of ORMs
+# ***
+
+
+
+Works in all Ruby projects, regardless of ORM as long as an attribute has a way to identify it (e.g ID column). 
+Very simple built, source code is < 100 loc and has full test coverage. 
+Easy to tap into any project without high learning curve or code breakage. Easy to remove as well.
+VERY unobtrusive.
+
+== Introduction
+class Tweet < ActiveRecord::Base 
+  after_create :create_search_index
+  before_destroy :destroy_search_index
+  
+  private
+  def create_search_index
+    FullTextSearch.create_index :attribute_namespace => :tweet_text_content,
+                                :document_id => id,
+                                :words => text_content
+                              
+  end
+  
+  def destroy_search_index
+    FullTextSearch.destroy_index  :attribute_namespace => :tweet_text_content,
+                                  :document_id => id,
+                                  :words => text_content
+    
+  end
+end
+
+
+set_of_ids = FullTextSearch.search_index :attribute_namespace => :article_text,
+                                         :search => text_content
+                                         
+Article.where(:id => set_of_ids)
+  
 == Contributing to Rfizzy
  
-* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
+* Make sure you got Redis running locally on standard port
+* Make sure you can have up to 10 databases with redis, since the test suite uses db 10
+* Check out the latest develop to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
 * Fork the project
-* Start a feature/bugfix branch
+* Start a feature/my_feature or hotfix/ branch
 * Commit and push until you are happy with your contribution
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
@@ -20,5 +71,5 @@ Permission is hereby granted, free of charge, to any person obtaining a copy of 
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. By reading this fine print your soul is now the exclusive property of Seivan Heidari Productions and its Subsidiaries. Unauthorized use of seivan gems, images, materials, souls, odors and oxygen is strongly discouraged. We know where you sleep. Also, your mum & bring back prop8.
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. By not reading this fine print your soul is now the exclusive property of Seivan Heidari Productions and its Subsidiaries. Unauthorized use of Seivans code, images, materials, souls, odors and oxygen is strongly discouraged. We know where you sleep. Also, I might have banged your mums pool boy. Sorry about that.
 

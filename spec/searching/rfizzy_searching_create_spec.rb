@@ -1,13 +1,6 @@
 require "spec_helper"
 
-describe Rfizzy, "create" do
-
-
-  before(:each) do
-    @search = Rfizzy.new({:redis => R, :namespace => namespace }) 
-    @search.create_index(tweet)
-  end
-  
+describe Rfizzy, "search create_index" do
   let(:namespace) { SearchFactory.instance.namespace }
   let(:tweet) { SearchFactory.instance.tweet }
   let(:document_key_name) { SearchFactory.instance.document_key_name }
@@ -16,6 +9,11 @@ describe Rfizzy, "create" do
   let(:word_list) { SearchFactory.instance.word_list }
   let(:word_size) { SearchFactory.instance.word_size }
 
+  before(:each) do
+    @search = Rfizzy.new({:redis => R, :namespace => namespace }) 
+    @search.create_index(tweet)
+  end
+  
 context "create an index with" do      
   context "a document that" do
     it "should exist " do

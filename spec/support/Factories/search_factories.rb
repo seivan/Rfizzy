@@ -14,7 +14,7 @@ class SearchFactory
     {:attribute_namespace => :tweet,
     :document_id => "MyPost",
     :association => "MyUser",
-    :text => "should create the document set with proper key names filled with words"}
+    :words => "should create the document set with proper key names filled with words"}
   end
   
   def document_key_name
@@ -26,7 +26,7 @@ class SearchFactory
   end
   
   def word_list
-    tweet[:text].split(" ").uniq
+    tweet[:words].split(" ").uniq
   end
   
   def word_size

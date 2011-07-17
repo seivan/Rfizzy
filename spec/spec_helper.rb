@@ -21,7 +21,7 @@ RSpec.configure do |config|
   end
 
   config.before(:all) do
-   R.select 0
+   R.select 10
    R.flushdb
 
   end
