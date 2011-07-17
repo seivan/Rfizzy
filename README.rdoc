@@ -3,9 +3,9 @@
 
 == A ruby library utilizing Redis for
 
-* {Full text search engine with Redis}[http://seivan.github.com/Rfizzy/FullTextSearch.html]
+* {Full text search engine}[http://seivan.github.com/Rfizzy/FullTextSearch.html]
 * {Tagging library}[http://seivan.github.com/Rfizzy/Tagging.html]
-* Social Graph with friends, followers, followees and etc. - (not in 0.1.0, gotta pick your battles)
+* Social Graph with friends, followers, followees, circles and etc. - (not in 0.1.0, gotta pick your battles)
 
 
 == Key Features
