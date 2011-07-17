@@ -6,7 +6,7 @@
 * {Full text search engine}[http://seivan.github.com/Rfizzy/FullTextSearch.html]
 * {Tagging library}[http://seivan.github.com/Rfizzy/Tagging.html]
 * Social Graph with friends, followers, followees, circles and etc. - (not in 0.1.0, gotta pick your battles)
-* Messages, Tweets, Inbox, Outbox, Private Messages and etc. - (not in 0.1.0, gotta pick your battles)
+* Messages, tweets, inbox, outbox and etc. - (not in 0.1.0, gotta pick your battles)
 
 == Key Features
 
