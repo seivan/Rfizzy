@@ -24,11 +24,28 @@ Gem::Specification.new do |s|
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
+    "Rfizzy.gemspec",
+    "VERSION",
+    "docs/FullTextSearch.html",
+    "docs/Tagging.html",
+    "docs/docco.css",
+    "docs/installation_and_setup.html",
+    "example_usage/FullTextSearch.rb",
+    "example_usage/Tagging.rb",
+    "example_usage/installation_and_setup.rb",
     "lib/Rfizzy.rb",
     "spec/.DS_Store",
+    "spec/initialization/rfizzy_searching_initialize_spec.rb",
+    "spec/searching/.DS_Store",
+    "spec/searching/rfizzy_searching_create_spec.rb",
+    "spec/searching/rfizzy_searching_destroy_spec.rb",
+    "spec/searching/rfizzy_searching_search_spec.rb",
     "spec/spec_helper.rb",
     "spec/support/.DS_Store",
-    "spec/support/Factories/search_factories.rb"
+    "spec/support/Factories/search_factories.rb",
+    "spec/support/Factories/tagging_factories.rb",
+    "spec/tagging/rfizzy_tagging_create_spec.rb",
+    "spec/tagging/rfizzy_tagging_search_spec.rb"
   ]
   s.homepage = %q{http://github.com/seivan/Rfizzy}
   s.licenses = ["MIT"]
