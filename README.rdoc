@@ -1,8 +1,11 @@
 = Rfizzy http://travis-ci.org/seivan/Rfizzy.png
 
 == Install?
-*gem "Rfizzy"
-*bundle install
+
+* gem "Rfizzy"
+* bundle install
+or
+* gem install Rfizzy
 
 == {Documentation}[http://seivan.github.com/Rfizzy/]
 
