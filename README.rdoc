@@ -1,8 +1,8 @@
 = Rfizzy http://travis-ci.org/seivan/Rfizzy.png
-
 == {Documentation}[http://seivan.github.com/Rfizzy/]
 
 == A ruby library utilizing Redis for
+
 * {Full text search engine with Redis}[http://seivan.github.com/Rfizzy/FullTextSearch.html]
 * {Tagging library}[http://seivan.github.com/Rfizzy/Tagging.html]
 * Social Graph with friends, followers, followees and etc. - (not in 0.1.0, gotta pick your battles)
@@ -10,13 +10,13 @@
 
 == Key Features
 
-* Very unobtrusiv
-* Very easy to add to a project
-* Very easy to remove from a project
-* Small memory foot print, 
-* very tiny code base compared to other libraries and in contrast to what it adds to a project
-* Fast
-* No learning curve
+* Very unobtrusiv.
+* Very easy to add to a project.
+* Very easy to remove from a project.
+* Small memory foot print.
+* Very tiny code base compared to other libraries and in contrast to what it adds to a project.
+* Fast.
+* No learning curve.
 * Works with any ORMs out of the box...
 * ... Since it's not attached to any of ORMs
 
@@ -59,13 +59,13 @@ Specs run with 1.9.2: http://travis-ci.org/#!/seivan/rfizzy
 
 == Contributing to Rfizzy
  
-* Make sure you got Redis running locally on standard port
-* Make sure you can have up to 10 databases with redis, since the test suite uses db 10
-* Check out the latest develop to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
-* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
-* Fork the project
-* Start a feature/my_feature or hotfix/ branch
-* Commit and push until you are happy with your contribution
+* Make sure you got Redis running locally on standard port.
+* Make sure you can have up to 10 databases with redis, since the test suite uses db 10.
+* Check out the latest develop to make sure the feature hasn't been implemented or the bug hasn't been fixed yet.
+* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it.
+* Fork the project.
+* Start a feature/my_feature or hotfix/ branch.
+* Commit and push until you are happy with your contribution.
 * Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
 * Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
 
