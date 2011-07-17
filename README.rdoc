@@ -1,11 +1,12 @@
 = Rfizzy http://travis-ci.org/seivan/Rfizzy.png
 
+== {Documentation for Setup and Installation}[http://seivan.github.com/Rfizzy/]
+
 == A ruby library utilizing Redis for
-* Full text search engine with Redis: http://seivan.github.com/Rfizzy/FullTextSearch.html
-* Tagging library: http://seivan.github.com/Rfizzy/Tagging.html
+* {Full text search engine with Redis}[http://seivan.github.com/Rfizzy/FullTextSearch.html]
+* {Tagging library}[http://seivan.github.com/Rfizzy/Tagging.html]
 * Social Graph with friends, followers, followees and etc. - (not in 0.1.0, gotta pick your battles)
 
-== Installation & Setup: http://seivan.github.com/Rfizzy/
 
 == Key Features
 
