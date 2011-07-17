@@ -65,6 +65,14 @@ VERY unobtrusive.
 
 Specs run with 1.9.2: http://travis-ci.org/#!/seivan/rfizzy
 
+== Todo
+* Refactor
+* Add a index-cleaner to remove old/unused indices
+* Add friendships
+* Add messages
+* Refactor some more
+* Write internal documentation if the specs won't cut it.
+
 == Contributing to Rfizzy
  
 * Make sure you got Redis running locally on standard port.
