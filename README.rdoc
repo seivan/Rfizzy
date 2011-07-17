@@ -50,7 +50,11 @@ VERY unobtrusive.
                                            :search => text_content
                                          
   Article.where(:id => set_of_ids)
-  
+
+== Travis CI build status http://travis-ci.org/seivan/Rfizzy.png
+
+Specs run with 1.9.2: http://travis-ci.org/#!/seivan/rfizzy
+
 == Contributing to Rfizzy
  
 * Make sure you got Redis running locally on standard port
