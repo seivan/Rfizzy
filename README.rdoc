@@ -6,8 +6,10 @@ gem install Rfizzy
 == {Documentation}[http://seivan.github.com/Rfizzy/]
 
 == Why?
-Because it was cheaper for me to use Redis 20mb than 15 gb PostgreSQL
+Because it was cheaper for me to use Redis 20mb than 15 gb PostgreSQL (not sure about the soft limit)
 And also, because I want people to realize how powerful Redis actually is.
+
+== Don't forget running things asynchronously - I recommend resque ;-)
 
 == A ruby library utilizing Redis for
 
