@@ -1,7 +1,6 @@
 = Rfizzy 
 
-
-== ![Build Status](https://travis-ci.org/seivan/Rfizzy.png?branch=master)
+![Build Status](https://travis-ci.org/seivan/Rfizzy.png?branch=master)
 
 == Installation
 gem install Rfizzy
