@@ -40,7 +40,7 @@ VERY unobtrusive.
 
 == Introduction
 
-```objective-c
+```ruby
   class Tweet < ActiveRecord::Base 
     after_create :create_search_index
     before_destroy :destroy_search_index
