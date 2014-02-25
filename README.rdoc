@@ -40,6 +40,7 @@ VERY unobtrusive.
 
 == Introduction
 
+```objective-c
   class Tweet < ActiveRecord::Base 
     after_create :create_search_index
     before_destroy :destroy_search_index
@@ -64,6 +65,7 @@ VERY unobtrusive.
                                            :search => "bieber"
                                          
   Twéet.where(:id => set_of_ids)
+```
 
 == Travis CI build status http://travis-ci.org/seivan/Rfizzy.png
 
